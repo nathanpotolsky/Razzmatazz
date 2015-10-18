@@ -10,7 +10,7 @@ tools:context="github2b2b.razzmatazz.ChooseTopping">
 <Button
     android:layout_width="80dp"
     android:layout_height="80dp"
-    android:text="***"
+    android:text="Cont.."
     android:id="@+id/button"
     android:paddingTop="25dp"
     android:paddingBottom="15dp"
@@ -19,7 +19,7 @@ tools:context="github2b2b.razzmatazz.ChooseTopping">
     android:layout_alignStart="@+id/button3"
     android:gravity="center_vertical|center_horizontal"
     android:textSize="12dp"
-    />
+    android:onClick="onClickCompleteSandwich"/>
 
 <Button
     android:layout_width="80dp"

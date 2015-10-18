@@ -22,27 +22,29 @@ public class ChooseTopping extends AppCompatActivity {
             //on
             tags.add(curToppingTag);
             System.out.println(tags);
-            Sandwich.addIngredient(curTopping);
-            Sandwich.print();                                                     //Print contents of current sandwich ** Debug
+            Sandwich.sand.addIngredient(curTopping);
+            Sandwich.sand.print();                                                     //Print contents of current sandwich ** Debug
         }else{
             //off
             tags.remove(curToppingTag);
             System.out.println(tags);
-            Sandwich.removeIngredient(curTopping);                                 //Remove current ingredient (Button is not highlighted anymore)
-            Sandwich.print();                                                   //Print contents of current sandwich ** Debug
+            Sandwich.sand.removeIngredient(curTopping);                                 //Remove current ingredient (Button is not highlighted anymore)
+            Sandwich.sand.print();                                                   //Print contents of current sandwich ** Debug
         }
 
     }
 
-    public void nextPage(View v){
-//        TODO: Make a "Continue or checkout" activity and send this to that.
+    public void onClickCompleteSandwich(View v){
 
-        Intent intent = new Intent(this, ChooseTopping.class);  //change when new class is implemented
+        Cart.addItem(Sandwich.sand);                        //add static sandwich instance to cart
+        Sandwich.sand.removeAllIngredients();               //wipe the temp sandwich object
+
+        Intent intent = new Intent(this, continueOrFinish.class);  //change when new class is implemented
         startActivity(intent);
     }
 
     public void backToPrev(View v){
-        Sandwich.removeIngredientsFromTopping(tags);
+        Sandwich.sand.removeIngredientsFromTopping(tags);
         super.onBackPressed();
     }
 
@@ -52,7 +54,7 @@ public class ChooseTopping extends AppCompatActivity {
             Log.i("predelete:", m.itemName);
         }
         Cart.cancelOrder();                    //Clear the cart and the current sandwich if applicable
-        Sandwich.removeAllIngredients();
+        Sandwich.sand.removeAllIngredients();
         for(MenuItem m : Cart.chosenItems){
             Log.i("post delete:", m.itemName);
         }

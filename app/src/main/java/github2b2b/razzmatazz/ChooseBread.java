@@ -13,9 +13,9 @@ public class ChooseBread extends AppCompatActivity {
        ToggleButton tb = (ToggleButton) v;
 
         int curBread = Integer.parseInt(v.getTag().toString());             //Look at the tag of the item and find the corresponding tag in ingredient manager. **Ask Shane
-        Sandwich.breadType = IngredientManager.breadList.get(curBread);     //set the bread type for the sandwich **Ask Shane
+        Sandwich.sand.breadType = IngredientManager.breadList.get(curBread);     //set the bread type for the sandwich **Ask Shane
 
-        System.out.println("Sandwiches current bread id: " + Sandwich.breadType.getIngredientName());   //Debug
+        System.out.println("Sandwiches current bread id: " + Sandwich.sand.breadType.getIngredientName());   //Debug
 
        tb.setChecked(false);                                        //change the toggle back to off since we can only have one bread selected
        Intent intent = new Intent(this, ChooseMeat.class);          //Jump to ChooseMeat Activity
@@ -27,7 +27,7 @@ public class ChooseBread extends AppCompatActivity {
     public void exitToStart(View v){
 
         Cart.cancelOrder();                     //Clear the cart and the current sandwich if applicable
-        Sandwich.removeAllIngredients();
+        Sandwich.sand.removeAllIngredients();
 
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);

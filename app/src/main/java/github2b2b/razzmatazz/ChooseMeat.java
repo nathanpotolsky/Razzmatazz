@@ -18,12 +18,12 @@ public class ChooseMeat extends AppCompatActivity {
 
         if(((ToggleButton) v).isChecked()){
             //on
-            Sandwich.addIngredient(curMeat);                                    //set the bread type for the sandwich **Ask Shane
-            Sandwich.print();                                                   //Print contents of current sandwich ** Debug
+            Sandwich.sand.addIngredient(curMeat);                                    //set the bread type for the sandwich **Ask Shane
+            Sandwich.sand.print();                                                   //Print contents of current sandwich ** Debug
         }else{
             //off
-            Sandwich.removeIngredient(curMeat);                                 //Remove current ingredient (Button is not highlighted anymore)
-            Sandwich.print();                                                   //Print contents of current sandwich ** Debug
+            Sandwich.sand.removeIngredient(curMeat);                                 //Remove current ingredient (Button is not highlighted anymore)
+            Sandwich.sand.print();                                                   //Print contents of current sandwich ** Debug
         }
 
     }
@@ -38,7 +38,7 @@ public class ChooseMeat extends AppCompatActivity {
     //Return to Previous page
     public void backToPrev(View v){
 
-        Sandwich.removeAllIngredients();                    //wipe all ingredients.
+        Sandwich.sand.removeAllIngredients();                    //wipe all ingredients.
         super.onBackPressed();
     }
 
@@ -48,7 +48,7 @@ public class ChooseMeat extends AppCompatActivity {
             Log.i("predelete:", m.itemName);
         }
         Cart.cancelOrder();                    //Clear the cart and the current sandwich if applicable
-        Sandwich.removeAllIngredients();
+        Sandwich.sand.removeAllIngredients();
 
         for(MenuItem m : Cart.chosenItems){
            Log.i("post delete:", m.itemName);

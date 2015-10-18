@@ -16,7 +16,6 @@ public class Cart {
 
     public static void checkOut(){
         //TODO: Display order on screen. Send order. Print recipt
-
         //Wipe Cart, and Sandwich. Increment Order Number and return to main menu. ??Write order to log??
 
     }
@@ -26,7 +25,7 @@ public class Cart {
         if(chosenItems.size()!=0) {
             chosenItems.clear();
         }
-        Sandwich.removeAllIngredients();
+        Sandwich.sand.removeAllIngredients();
 
 
     }

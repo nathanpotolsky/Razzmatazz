@@ -16,14 +16,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".FullscreenActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/title_activity_fullscreen"
-            android:theme="@style/FullscreenTheme" >
-        </activity>
-        <activity android:name=".ChooseSandwhichType" >
-        </activity>
         <activity android:name=".ChooseBread" >
         </activity>
         <activity android:name=".ChooseMeat" >
@@ -31,6 +23,8 @@
         <activity android:name=".ChooseCheese" >
         </activity>
         <activity android:name=".ChooseTopping" >
+        </activity>
+        <activity android:name=".continueOrFinish" >
         </activity>
     </application>
 

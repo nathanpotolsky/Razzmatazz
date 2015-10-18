@@ -23,17 +23,15 @@ public class ChooseCheese extends AppCompatActivity {
             //on
             tags.add(curCheeseTag);
             System.out.println(tags);
-            Sandwich.addIngredient(curCheese);
-            Sandwich.print();                                                     //Print contents of current sandwich ** Debug
+            Sandwich.sand.addIngredient(curCheese);
+            Sandwich.sand.print();                                                     //Print contents of current sandwich ** Debug
         }else{
             //off
             tags.remove(curCheeseTag);
             System.out.println(tags);
-            Sandwich.removeIngredient(curCheese);                                 //Remove current ingredient (Button is not highlighted anymore)
-            Sandwich.print();                                                   //Print contents of current sandwich ** Debug
+            Sandwich.sand.removeIngredient(curCheese);                                 //Remove current ingredient (Button is not highlighted anymore)
+            Sandwich.sand.print();                                                   //Print contents of current sandwich ** Debug
         }
-
-
     }
 
     public void nextPage(View v){
@@ -42,7 +40,7 @@ public class ChooseCheese extends AppCompatActivity {
     }
 
     public void backToPrev(View v){
-        Sandwich.removeIngredientsFromCheese(tags);
+        Sandwich.sand.removeIngredientsFromCheese(tags);
         super.onBackPressed();
     }
 
@@ -52,15 +50,12 @@ public class ChooseCheese extends AppCompatActivity {
             Log.i("predelete:", m.itemName);
         }
         Cart.cancelOrder();                    //Clear the cart and the current sandwich if applicable
-        Sandwich.removeAllIngredients();
-
+        Sandwich.sand.removeAllIngredients();
         for(MenuItem m : Cart.chosenItems){
             Log.i("post delete:", m.itemName);
         }
-
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
-
     }
 
 
